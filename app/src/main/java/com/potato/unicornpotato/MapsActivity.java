@@ -2,6 +2,8 @@ package com.potato.unicornpotato;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.location.Location;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
@@ -35,6 +37,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private LocationRequest mLocationRequest;
     private Location mCurrentLocation;
     private Marker mCurrentLocationMarker;
+    private boolean menu_left_selected = false;
+    private boolean menu_middle_selected = false;
+    private boolean menu_right_selected = false;
 
     // Concordia Hall Building
     private final static LatLng Concordia = new LatLng(45.497337, -73.578940);
@@ -54,6 +59,61 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             public void onClick(View view) {
                 LatLng coordinate = new LatLng(mCurrentLocation.getLatitude(), mCurrentLocation.getLongitude());
                 panToCoordinate(coordinate);
+            }
+        });
+
+        final TextView textView8 = (TextView)this.findViewById(R.id.textView8);
+        final TextView textView9 = (TextView)this.findViewById(R.id.textView9);
+        final TextView textView10 = (TextView)this.findViewById(R.id.textView10);
+
+        textView8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!menu_left_selected){
+                    textView8.setTextColor(Color.WHITE);
+                    textView9.setTextColor(Color.BLACK);
+                    textView10.setTextColor(Color.BLACK);
+                    menu_left_selected = true;
+                    menu_middle_selected = false;
+                    menu_left_selected = false;
+                } else {
+                    textView8.setTextColor(Color.BLACK);
+                    menu_left_selected = false;
+                }
+            }
+        });
+
+        textView9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!menu_left_selected){
+                    textView8.setTextColor(Color.BLACK);
+                    textView9.setTextColor(Color.WHITE);
+                    textView10.setTextColor(Color.BLACK);
+                    menu_left_selected = false;
+                    menu_middle_selected = true;
+                    menu_right_selected = false;
+                } else {
+                    textView9.setTextColor(Color.BLACK);
+                    menu_middle_selected = false;
+                }
+            }
+        });
+
+        textView10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!menu_left_selected){
+                    textView8.setTextColor(Color.BLACK);
+                    textView9.setTextColor(Color.BLACK);
+                    textView10.setTextColor(Color.WHITE);
+                    menu_left_selected = false;
+                    menu_middle_selected = false;
+                    menu_right_selected = true;
+                } else {
+                    textView10.setTextColor(Color.BLACK);
+                    menu_right_selected = false;
+                }
             }
         });
     }

@@ -9,4 +9,7 @@
     <string name="user2">At the pickup location.</string>
     <string name="user_distance1">0.5 mi</string>
     <string name="user_distance2">0.1 mi</string>
+    <string name="menu_left">TRIPS</string>
+    <string name="menu_middle">NAVIGATION</string>
+    <string name="menu_right">PROFILE</string>
 </resources>
