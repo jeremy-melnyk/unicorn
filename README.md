@@ -1,2 +1,2 @@
 # unicorn
-Android prototype for project for Project Unicorn Potato.
+Android prototype for project Unicorn Potato.
