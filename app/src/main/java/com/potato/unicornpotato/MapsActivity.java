@@ -113,16 +113,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             return;
         }
         LatLng coordinate = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
-        MarkerOptions markerOptions = new MarkerOptions();
-        markerOptions.position(coordinate);
-        markerOptions.title("Current Location");
-        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
-        mCurrentLocationMarker = mMap.addMarker(markerOptions);
+        if(mCurrentLocationMarker != null){
+            mCurrentLocationMarker.setPosition(coordinate);
+        }
     }
 
     public void panToCoordinate(LatLng coordinate) {
         if(coordinate == null){
             return;
+        }
+        if(mCurrentLocationMarker == null){
+            MarkerOptions markerOptions = new MarkerOptions();
+            markerOptions.position(coordinate);
+            markerOptions.title("Current Location");
+            markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
+            mCurrentLocationMarker = mMap.addMarker(markerOptions);
         }
         mMap.moveCamera(CameraUpdateFactory.newLatLng(coordinate));
         CameraPosition cameraPosition = new CameraPosition.Builder()

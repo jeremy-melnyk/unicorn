@@ -3,4 +3,10 @@
     <string name="title_activity_maps">Unicorn Map</string>
     <string name="destination_map">Pavillion Henry F.Hall Bldg</string>
     <string name="destination_address">1455 Boulevard de Maisonneuve O</string>
+    <string name="user1">Will be late, 5 min.</string>
+    <string name="username1">John Potato</string>
+    <string name="username2">Jane Potato</string>
+    <string name="user2">At the pickup location.</string>
+    <string name="user_distance1">0.5 mi</string>
+    <string name="user_distance2">0.1 mi</string>
 </resources>
